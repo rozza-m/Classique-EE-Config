@@ -22,16 +22,34 @@
     
     
     <div class="item-container">
-      <div class="item-container-header">Lower display</div>
+      <div class="item-container-header">Lower Display</div>
       <div class="item-container-content">
         <label class="item">
-          Content
-            <select name="lower-display-select" id="lower_display_select" class="item-select">
-              <option class="item-select-option">Steps (numeric)</option>
-              <option class="item-select-option" selected>Battery (numeric)</option>
-              <option class="item-select-option">Battery (bar)</option>
-            </select>
-    </label>
+          Steps today (numeric)
+          <input type="radio" class="item-radio" id="lower_display_steps_num" name="radio-1" value="a" checked>
+        </label>
+        <label class="item">
+          Battery (numeric)
+          <input type="radio" class="item-radio" id="lower_display_steps_batt_numeric" name="radio-1" value="b">
+        </label>
+        <label class="item">
+          Battery (bar)
+          <input type="radio" class="item-radio" name="radio-1" id="lower_display_batt_bar" value="c">
+        </label>
+      </div>
+    </div>
+    
+    <div class="item-container">
+      <div class="item-container-header">Bluetooth warning</div>
+      <div class="item-container-content">
+        <label class="item">
+          Show icon on phone disconnection
+          <input type="checkbox" class="item-checkbox" id="bt_icon" name="checkbox-1">
+        </label>
+        <label class="item">
+          Vibrate briefly on phone disconnection
+          <input type="checkbox" class="item-checkbox" id="bt_vibrate" name="checkbox-2">
+        </label>
       </div>
     </div>
     
@@ -50,13 +68,25 @@
   </body>
   <script>
   function getConfigData() {
-    var LowerDisplaySelect = document.getElementById('lower_display_select');
+    var textColorPicker = document.getElementById('text_color_picker');
+    var lineColorPicker = document.getElementById('line_color_picker');
+    var fastAnimCheckbox = document.getElementById('fast_anim_checkbox');
+    var noBgCheckbox = document.getElementById('no_bg_checkbox');
+    var monthFirstCheckbox = document.getElementById('month_first_checkbox');
  
     var options = {
-      'lower_display': LowerDisplaySelect.value
+      'text_color': textColorPicker.value,
+      'line_color': lineColorPicker.value,
+      'fast_anim': fastAnimCheckbox.checked,
+      'no_bg': noBgCheckbox.checked,
+      'month_first': monthFirstCheckbox.checked
     };
     // Save for next launch
-    localStorage['lower_display'] = options['lower_display'];
+    localStorage['text_color'] = options['text_color'];
+    localStorage['line_color'] = options['line_color'];
+    localStorage['fast_anim'] = options['fast_anim'];
+    localStorage['no_bg'] = options['no_bg'];
+    localStorage['month_first'] = options['month_first'];
     console.log('Got options: ' + JSON.stringify(options));
     return options;
   }
@@ -80,9 +110,17 @@
     document.location = return_to + encodeURIComponent(JSON.stringify(getConfigData()));
   });
   (function() {
-    var LowerDisplaySelect = document.getElementById('lower_display');
+    var textColorPicker = document.getElementById('text_color_picker');
+    var lineColorPicker = document.getElementById('line_color_picker');
+    var fastAnimCheckbox = document.getElementById('fast_anim_checkbox');
+    var noBgCheckbox = document.getElementById('no_bg_checkbox');
+    var monthFirstCheckbox = document.getElementById('month_first_checkbox');
     // Load any previously saved configuration, if available
-    if(localStorage['lower_display']) {  LowerDisplaySelect.value = JSON.parse(localStorage['lower_display']); }
+    if(localStorage['fast_anim']) {  fastAnimCheckbox.checked = JSON.parse(localStorage['fast_anim']); }
+    if(localStorage['no_bg']) {  noBgCheckbox.checked = JSON.parse(localStorage['no_bg']); }
+    if(localStorage['month_first']) {  noBgCheckbox.checked = JSON.parse(localStorage['month_first']); }
+    if(localStorage['text_color']) {  textColorPicker.value = localStorage['text_color']; }
+    if(localStorage['line_color']) {  lineColorPicker.value = localStorage['line_color']; }
   })();
   </script>
 </html>
