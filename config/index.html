@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>PIP-PIP</title>
+  <title>CLASSIQUE</title>
   <link rel='stylesheet' type='text/css' href='css/slate.min.css'>
   <script src='js/slate.min.js'></script>
   <style>
@@ -18,88 +18,45 @@
   </head>
 
   <body>
-    <h1 class='title'>Pip-Boy Configuration</h1>
-
-    <div class='item-container'>
-      <div class='item-container-header'>Colours</div>
-      <div class='item-container-content'>
-        <label class='item'>
-          Character Color
-          <input id='text_color_picker' type='text' class='item-color item-color-normal' value='#00FF00'>
-        </label>
+    <h1 class='title'>Classique Configuration</h1>
+    
+    
+    <div class="item-container">
+      <div class="item-container-header">Lower display</div>
+      <div class="item-container-content">
+        <label class="item">
+          Content
+            <select name="lower-display-select" id="lower_display_select" dir='rtl' class="item-select">
+              <option class="item-select-option">Steps (numeric)</option>
+              <option class="item-select-option" selected>Battery (numeric)</option>
+              <option class="item-select-option">Battery (bar)</option>
+            </select>
+    </label>
       </div>
-      <div class='item-container-footer'>
-        Choose the app's character color. (Colour watches only.)
-      </div>
-      <div class='item-container-content'>
-        <label class='item'>
-          UI Color
-          <input id='line_color_picker' type='text' class='item-color item-color-normal' value='#00FF00'>
-        </label>
-      </div>
-      <div class='item-container-footer'>
-        Choose the app's UI color, used to colour the accent lines. (Colour watches only.)
+    </div>
+    
+    <div class="item-container">
+      <div class="item-container-content">
+        <div class="item">
+          Classique will always be free and will never have features taken away. 
+          But if you want to support me, the developer, and in return get loads 
+          of customisation options, you can download Classique Exclusive Edition from
+          the Pebble App Store!
+        </div>
       </div>
     </div>
 
-    <div class='item-container'>
-      <div class='item-container-header'>OS Options</div>
-      <div class='item-container-content'>
-        <label class='item'>
-          Month first
-          <input id='month_first_checkbox' type='checkbox' class='item-toggle'>
-        </label>
-      </div>
-      <div class='item-container-footer'>
-        Swaps the day and month (North America style).
-      </div>
-      <div class='item-container-content'>
-        <label class='item'>
-          Fast boot
-          <input id='fast_anim_checkbox' type='checkbox' class='item-toggle'>
-        </label>
-      </div>
-      <div class='item-container-footer'>
-        This skips some of Pip-Pip's POST to make it load quicker (i.e. faster startup animation).
-      </div>
-      <div class='item-container-content'>
-        <label class='item'>
-          Hide background
-          <input id='no_bg_checkbox' type='checkbox' class='item-toggle'>
-        </label>
-      </div>
-      <div class='item-container-footer'>
-        Don't display the CRT-style background. (Colour watches only.)
-      </div>
-    </div>
-
-    <div class='item-container'>
-      <div class='button-container'>
-        <input id='submit_button' type='button' class='item-button' value='SUBMIT'>
-      </div>
-    </div>
+    
   </body>
   <script>
   function getConfigData() {
-    var textColorPicker = document.getElementById('text_color_picker');
-    var lineColorPicker = document.getElementById('line_color_picker');
-    var fastAnimCheckbox = document.getElementById('fast_anim_checkbox');
-    var noBgCheckbox = document.getElementById('no_bg_checkbox');
-    var monthFirstCheckbox = document.getElementById('month_first_checkbox');
+    var LowerDisplaySelect = document.getElementById('lower_display_select');
  
     var options = {
-      'text_color': textColorPicker.value,
-      'line_color': lineColorPicker.value,
-      'fast_anim': fastAnimCheckbox.checked,
-      'no_bg': noBgCheckbox.checked,
-      'month_first': monthFirstCheckbox.checked
+      'lower_display': LowerDisplaySelect.value
     };
     // Save for next launch
-    localStorage['text_color'] = options['text_color'];
-    localStorage['line_color'] = options['line_color'];
-    localStorage['fast_anim'] = options['fast_anim'];
-    localStorage['no_bg'] = options['no_bg'];
-    localStorage['month_first'] = options['month_first'];
+    localStorage['lower_display'] = options['lower_display'];
     console.log('Got options: ' + JSON.stringify(options));
     return options;
   }
@@ -123,17 +80,9 @@
     document.location = return_to + encodeURIComponent(JSON.stringify(getConfigData()));
   });
   (function() {
-    var textColorPicker = document.getElementById('text_color_picker');
-    var lineColorPicker = document.getElementById('line_color_picker');
-    var fastAnimCheckbox = document.getElementById('fast_anim_checkbox');
-    var noBgCheckbox = document.getElementById('no_bg_checkbox');
-    var monthFirstCheckbox = document.getElementById('month_first_checkbox');
+    var LowerDisplaySelect = document.getElementById('lower_display');
     // Load any previously saved configuration, if available
-    if(localStorage['fast_anim']) {  fastAnimCheckbox.checked = JSON.parse(localStorage['fast_anim']); }
-    if(localStorage['no_bg']) {  noBgCheckbox.checked = JSON.parse(localStorage['no_bg']); }
-    if(localStorage['month_first']) {  noBgCheckbox.checked = JSON.parse(localStorage['month_first']); }
-    if(localStorage['text_color']) {  textColorPicker.value = localStorage['text_color']; }
-    if(localStorage['line_color']) {  lineColorPicker.value = localStorage['line_color']; }
+    if(localStorage['lower_display']) {  LowerDisplaySelect.value = JSON.parse(localStorage['lower_display']); }
   })();
   </script>
 </html>
