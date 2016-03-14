@@ -26,15 +26,15 @@
       <div class="item-container-content">
         <label class="item">
           Steps today (numeric)
-          <input type="radio" class="item-radio" id="lower_display_steps_num" name="radio-1" value="a" checked>
+          <input type="radio" class="item-radio" id="lower_display_steps_num_checkbox" name="radio-1" value="a" checked>
         </label>
         <label class="item">
           Battery (numeric)
-          <input type="radio" class="item-radio" id="lower_display_steps_batt_numeric" name="radio-1" value="b">
+          <input type="radio" class="item-radio" id="lower_display_steps_batt_numeric_checkbox" name="radio-1" value="b">
         </label>
         <label class="item">
           Battery (bar)
-          <input type="radio" class="item-radio" name="radio-1" id="lower_display_batt_bar" value="c">
+          <input type="radio" class="item-radio" name="radio-1" id="lower_display_batt_bar_checkbox" value="c">
         </label>
       </div>
     </div>
@@ -44,11 +44,11 @@
       <div class="item-container-content">
         <label class="item">
           Show icon on phone disconnection
-          <input type="checkbox" class="item-checkbox" id="bt_icon" name="checkbox-1">
+          <input type="checkbox" class="item-checkbox" id="bt_icon_checkbox" name="checkbox-1">
         </label>
         <label class="item">
           Vibrate briefly on phone disconnection
-          <input type="checkbox" class="item-checkbox" id="bt_vibrate" name="checkbox-2">
+          <input type="checkbox" class="item-checkbox" id="bt_vibrate_checkbox" name="checkbox-2">
         </label>
       </div>
     </div>
@@ -68,25 +68,25 @@
   </body>
   <script>
   function getConfigData() {
-    var textColorPicker = document.getElementById('text_color_picker');
-    var lineColorPicker = document.getElementById('line_color_picker');
-    var fastAnimCheckbox = document.getElementById('fast_anim_checkbox');
-    var noBgCheckbox = document.getElementById('no_bg_checkbox');
-    var monthFirstCheckbox = document.getElementById('month_first_checkbox');
+    var lowerDisplayStepsCheckbox = document.getElementById('lower_display_steps_num_checkbox');
+    var lowerDisplayBattNumCheckbox = document.getElementById('lower_display_steps_batt_numeric_checkbox');
+    var lowerDisplayBattBarCheckbox = document.getElementById('lower_display_batt_bar_checkbox');
+    var btIconCheckbox = document.getElementById('bt_icon_checkbox');
+    var btVibrateCheckbox = document.getElementById('bt_vibrate_checkbox');
  
     var options = {
-      'text_color': textColorPicker.value,
-      'line_color': lineColorPicker.value,
-      'fast_anim': fastAnimCheckbox.checked,
-      'no_bg': noBgCheckbox.checked,
-      'month_first': monthFirstCheckbox.checked
+      'lower_display_steps_num': lowerDisplayStepsCheckbox.checked,
+      'lower_display_steps_batt_numeric': lowerDisplayBattNumCheckbox.checked,
+      'lower_display_batt_bar': lowerDisplayBattBarCheckbox.checked,
+      'bt_icon': btIconCheckbox.checked,
+      'bt_vibrate': btVibrateCheckbox.checked
     };
     // Save for next launch
-    localStorage['text_color'] = options['text_color'];
-    localStorage['line_color'] = options['line_color'];
-    localStorage['fast_anim'] = options['fast_anim'];
-    localStorage['no_bg'] = options['no_bg'];
-    localStorage['month_first'] = options['month_first'];
+    localStorage['lower_display_steps_num'] = options['lower_display_steps_num'];
+    localStorage['lower_display_steps_batt_numeric'] = options['lower_display_steps_batt_numeric'];
+    localStorage['lower_display_batt_bar'] = options['lower_display_batt_bar'];
+    localStorage['bt_icon'] = options['bt_icon'];
+    localStorage['bt_vibrate'] = options['bt_vibrate'];
     console.log('Got options: ' + JSON.stringify(options));
     return options;
   }
@@ -110,17 +110,17 @@
     document.location = return_to + encodeURIComponent(JSON.stringify(getConfigData()));
   });
   (function() {
-    var textColorPicker = document.getElementById('text_color_picker');
-    var lineColorPicker = document.getElementById('line_color_picker');
-    var fastAnimCheckbox = document.getElementById('fast_anim_checkbox');
-    var noBgCheckbox = document.getElementById('no_bg_checkbox');
-    var monthFirstCheckbox = document.getElementById('month_first_checkbox');
+    var textColorPicker = document.getElementById('lower_display_steps_num_checkbox');
+    var lineColorPicker = document.getElementById('lower_display_steps_batt_numeric_checkbox');
+    var fastAnimCheckbox = document.getElementById('lower_display_batt_bar_checkbox');
+    var noBgCheckbox = document.getElementById('bt_icon_checkbox');
+    var monthFirstCheckbox = document.getElementById('bt_vibrate_checkbox');
     // Load any previously saved configuration, if available
-    if(localStorage['fast_anim']) {  fastAnimCheckbox.checked = JSON.parse(localStorage['fast_anim']); }
-    if(localStorage['no_bg']) {  noBgCheckbox.checked = JSON.parse(localStorage['no_bg']); }
-    if(localStorage['month_first']) {  noBgCheckbox.checked = JSON.parse(localStorage['month_first']); }
-    if(localStorage['text_color']) {  textColorPicker.value = localStorage['text_color']; }
-    if(localStorage['line_color']) {  lineColorPicker.value = localStorage['line_color']; }
+    if(localStorage['lower_display_steps_num']) {  fastAnimCheckbox.checked = JSON.parse(localStorage['lower_display_steps_num']); }
+    if(localStorage['lower_display_steps_batt_numeric']) {  noBgCheckbox.checked = JSON.parse(localStorage['lower_display_steps_batt_numeric']); }
+    if(localStorage['lower_display_batt_bar']) {  noBgCheckbox.checked = JSON.parse(localStorage['lower_display_batt_bar']); }
+    if(localStorage['bt_icon']) {  textColorPicker.value = localStorage['bt_icon_checkbox']; }
+    if(localStorage['bt_vibrate']) {  lineColorPicker.value = localStorage['bt_vibrate']; }
   })();
   </script>
 </html>
