@@ -30,7 +30,7 @@
         </label>
         <label class="item">
           Battery (numeric)
-          <input type="radio" class="item-radio" id="lower_display_steps_batt_numeric_checkbox" name="radio-1" value="b">
+          <input type="radio" class="item-radio" id="lower_display_batt_numeric_checkbox" name="radio-1" value="b">
         </label>
         <label class="item">
           Battery (bar)
@@ -69,21 +69,21 @@
   <script>
   function getConfigData() {
     var lowerDisplayStepsCheckbox = document.getElementById('lower_display_steps_num_checkbox');
-    var lowerDisplayBattNumCheckbox = document.getElementById('lower_display_steps_batt_numeric_checkbox');
+    var lowerDisplayBattNumCheckbox = document.getElementById('lower_display_batt_numeric_checkbox');
     var lowerDisplayBattBarCheckbox = document.getElementById('lower_display_batt_bar_checkbox');
     var btIconCheckbox = document.getElementById('bt_icon_checkbox');
     var btVibrateCheckbox = document.getElementById('bt_vibrate_checkbox');
  
     var options = {
       'lower_display_steps_num': lowerDisplayStepsCheckbox.checked,
-      'lower_display_steps_batt_numeric': lowerDisplayBattNumCheckbox.checked,
+      'lower_display_batt_numeric': lowerDisplayBattNumCheckbox.checked,
       'lower_display_batt_bar': lowerDisplayBattBarCheckbox.checked,
       'bt_icon': btIconCheckbox.checked,
       'bt_vibrate': btVibrateCheckbox.checked
     };
     // Save for next launch
     localStorage['lower_display_steps_num'] = options['lower_display_steps_num'];
-    localStorage['lower_display_steps_batt_numeric'] = options['lower_display_steps_batt_numeric'];
+    localStorage['lower_display_batt_numeric'] = options['lower_display_batt_numeric'];
     localStorage['lower_display_batt_bar'] = options['lower_display_batt_bar'];
     localStorage['bt_icon'] = options['bt_icon'];
     localStorage['bt_vibrate'] = options['bt_vibrate'];
@@ -111,13 +111,13 @@
   });
   (function() {
     var textColorPicker = document.getElementById('lower_display_steps_num_checkbox');
-    var lineColorPicker = document.getElementById('lower_display_steps_batt_numeric_checkbox');
+    var lineColorPicker = document.getElementById('lower_display_batt_numeric_checkbox');
     var fastAnimCheckbox = document.getElementById('lower_display_batt_bar_checkbox');
     var noBgCheckbox = document.getElementById('bt_icon_checkbox');
     var monthFirstCheckbox = document.getElementById('bt_vibrate_checkbox');
     // Load any previously saved configuration, if available
     if(localStorage['lower_display_steps_num']) {  fastAnimCheckbox.checked = JSON.parse(localStorage['lower_display_steps_num']); }
-    if(localStorage['lower_display_steps_batt_numeric']) {  noBgCheckbox.checked = JSON.parse(localStorage['lower_display_steps_batt_numeric']); }
+    if(localStorage['lower_display_batt_numeric']) {  noBgCheckbox.checked = JSON.parse(localStorage['lower_display_batt_numeric']); }
     if(localStorage['lower_display_batt_bar']) {  noBgCheckbox.checked = JSON.parse(localStorage['lower_display_batt_bar']); }
     if(localStorage['bt_icon']) {  textColorPicker.value = localStorage['bt_icon_checkbox']; }
     if(localStorage['bt_vibrate']) {  lineColorPicker.value = localStorage['bt_vibrate']; }
