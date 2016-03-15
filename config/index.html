@@ -37,6 +37,10 @@
           Battery (bar)
           <input type="radio" class="item-radio" name="radio-1" id="lower_display_batt_bar_checkbox" value="c">
         </label>
+        <label class="item">
+          Nothing
+          <input type="radio" class="item-radio" name="radio-1" id="lower_display_blank_checkbox" value="d">
+        </label>
       </div>
     </div>
     
@@ -69,16 +73,18 @@
   </body>
   <script>
   function getConfigData() {
-    var lowerDisplayStepsCheckbox = document.getElementById('lower_display_steps_num_checkbox');
+    var lowerDisplayStepsNumCheckbox = document.getElementById('lower_display_steps_num_checkbox');
     var lowerDisplayBattNumCheckbox = document.getElementById('lower_display_batt_numeric_checkbox');
     var lowerDisplayBattBarCheckbox = document.getElementById('lower_display_batt_bar_checkbox');
+    var lowerDisplayBlankCheckbox = document.getElementById('lower_display_blank_checkbox');
     var btIconCheckbox = document.getElementById('bt_icon_checkbox');
     var btVibrateCheckbox = document.getElementById('bt_vibrate_checkbox');
  
     var options = {
-      'lower_display_steps_num': lowerDisplayStepsCheckbox.checked,
+      'lower_display_steps_num': lowerDisplayStepsNumCheckbox.checked,
       'lower_display_batt_numeric': lowerDisplayBattNumCheckbox.checked,
       'lower_display_batt_bar': lowerDisplayBattBarCheckbox.checked,
+      'lower_display_blank': lowerDisplayBlankCheckbox.checked,
       'bt_icon': btIconCheckbox.checked,
       'bt_vibrate': btVibrateCheckbox.checked
     };
@@ -86,6 +92,7 @@
     localStorage['lower_display_steps_num'] = options['lower_display_steps_num'];
     localStorage['lower_display_batt_numeric'] = options['lower_display_batt_numeric'];
     localStorage['lower_display_batt_bar'] = options['lower_display_batt_bar'];
+    localStorage['lower_display_blank'] = options['lower_display_blank'];
     localStorage['bt_icon'] = options['bt_icon'];
     localStorage['bt_vibrate'] = options['bt_vibrate'];
     console.log('Got options: ' + JSON.stringify(options));
@@ -111,17 +118,19 @@
     document.location = return_to + encodeURIComponent(JSON.stringify(getConfigData()));
   });
   (function() {
-    var textColorPicker = document.getElementById('lower_display_steps_num_checkbox');
-    var lineColorPicker = document.getElementById('lower_display_batt_numeric_checkbox');
-    var fastAnimCheckbox = document.getElementById('lower_display_batt_bar_checkbox');
-    var noBgCheckbox = document.getElementById('bt_icon_checkbox');
-    var monthFirstCheckbox = document.getElementById('bt_vibrate_checkbox');
+    var lowerDisplayStepsNum = document.getElementById('lower_display_steps_num_checkbox');
+    var lowerDisplayBattNum = document.getElementById('lower_display_batt_numeric_checkbox');
+    var lowerDisplayBattBar = document.getElementById('lower_display_batt_bar_checkbox');
+    var lowerDisplayBlank = document.getElementById('lower_display_blank_checkbox');
+    var btIcon = document.getElementById('bt_icon_checkbox');
+    var btVibrate = document.getElementById('bt_vibrate_checkbox');
     // Load any previously saved configuration, if available
-    if(localStorage['lower_display_steps_num']) {  fastAnimCheckbox.checked = JSON.parse(localStorage['lower_display_steps_num']); }
-    if(localStorage['lower_display_batt_numeric']) {  noBgCheckbox.checked = JSON.parse(localStorage['lower_display_batt_numeric']); }
-    if(localStorage['lower_display_batt_bar']) {  noBgCheckbox.checked = JSON.parse(localStorage['lower_display_batt_bar']); }
-    if(localStorage['bt_icon']) {  textColorPicker.value = localStorage['bt_icon_checkbox']; }
-    if(localStorage['bt_vibrate']) {  lineColorPicker.value = localStorage['bt_vibrate']; }
+    if(localStorage['lower_display_steps_num']) {  lowerDisplayStepsNumCheckbox.checked = JSON.parse(localStorage['lower_display_steps_num']); }
+    if(localStorage['lower_display_batt_numeric']) {  lowerDisplayBattNumCheckbox.checked = JSON.parse(localStorage['lower_display_batt_numeric']); }
+    if(localStorage['lower_display_batt_bar']) {  lowerDisplayBattBarCheckbox.checked = JSON.parse(localStorage['lower_display_batt_bar']); }
+    if(localStorage['lower_display_blank']) {  lowerDisplayBlankCheckbox.checked = JSON.parse(localStorage['lower_display_blank']); }
+    if(localStorage['bt_icon']) {  btIconCheckbox.checked = localStorage['bt_icon_checkbox']; }
+    if(localStorage['bt_vibrate']) {  btVibrateCheckbox.checked = localStorage['bt_vibrate']; }
   })();
   </script>
 </html>
