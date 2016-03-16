@@ -31,7 +31,7 @@
         </label>
         <label class="item">
           Battery (numeric)
-          <input type="radio" class="item-radio" id="lower_display_batt_numeric_checkbox" name="radio-1" value="b">
+          <input type="radio" class="item-radio" id="lower_display_batt_num_checkbox" name="radio-1" value="b">
         </label>
         <label class="item">
           Battery (bar)
@@ -80,7 +80,7 @@
   <script>
   function getConfigData() {
     var lowerDisplayStepsNumCheckbox = document.getElementById('lower_display_steps_num_checkbox');
-    var lowerDisplayBattNumCheckbox = document.getElementById('lower_display_batt_numeric_checkbox');
+    var lowerDisplayBattNumCheckbox = document.getElementById('lower_display_batt_num_checkbox');
     var lowerDisplayBattBarCheckbox = document.getElementById('lower_display_batt_bar_checkbox');
     var lowerDisplayBlankCheckbox = document.getElementById('lower_display_blank_checkbox');
     var btIconCheckbox = document.getElementById('bt_icon_checkbox');
@@ -88,7 +88,7 @@
  
     var options = {
       'lower_display_steps_num': lowerDisplayStepsNumCheckbox.checked,
-      'lower_display_batt_numeric': lowerDisplayBattNumCheckbox.checked,
+      'lower_display_batt_num': lowerDisplayBattNumCheckbox.checked,
       'lower_display_batt_bar': lowerDisplayBattBarCheckbox.checked,
       'lower_display_blank': lowerDisplayBlankCheckbox.checked,
       'bt_icon': btIconCheckbox.checked,
@@ -96,7 +96,7 @@
     };
     // Save for next launch
     localStorage['lower_display_steps_num'] = options['lower_display_steps_num'];
-    localStorage['lower_display_batt_numeric'] = options['lower_display_batt_numeric'];
+    localStorage['lower_display_batt_num'] = options['lower_display_batt_num'];
     localStorage['lower_display_batt_bar'] = options['lower_display_batt_bar'];
     localStorage['lower_display_blank'] = options['lower_display_blank'];
     localStorage['bt_icon'] = options['bt_icon'];
@@ -125,14 +125,14 @@
   });
   (function() {
     var lowerDisplayStepsNum = document.getElementById('lower_display_steps_num_checkbox');
-    var lowerDisplayBattNum = document.getElementById('lower_display_batt_numeric_checkbox');
+    var lowerDisplayBattNum = document.getElementById('lower_display_batt_num_checkbox');
     var lowerDisplayBattBar = document.getElementById('lower_display_batt_bar_checkbox');
     var lowerDisplayBlank = document.getElementById('lower_display_blank_checkbox');
     var btIcon = document.getElementById('bt_icon_checkbox');
     var btVibrate = document.getElementById('bt_vibrate_checkbox');
     // Load any previously saved configuration, if available
     if(localStorage['lower_display_steps_num']) {  lowerDisplayStepsNumCheckbox.checked = JSON.parse(localStorage['lower_display_steps_num']); }
-    if(localStorage['lower_display_batt_numeric']) {  lowerDisplayBattNumCheckbox.checked = JSON.parse(localStorage['lower_display_batt_numeric']); }
+    if(localStorage['lower_display_batt_num']) {  lowerDisplayBattNumCheckbox.checked = JSON.parse(localStorage['lower_display_batt_num']); }
     if(localStorage['lower_display_batt_bar']) {  lowerDisplayBattBarCheckbox.checked = JSON.parse(localStorage['lower_display_batt_bar']); }
     if(localStorage['lower_display_blank']) {  lowerDisplayBlankCheckbox.checked = JSON.parse(localStorage['lower_display_blank']); }
     if(localStorage['bt_icon']) {  btIconCheckbox.checked = localStorage['bt_icon_checkbox']; }
