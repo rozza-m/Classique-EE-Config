@@ -115,7 +115,6 @@
     }
     return defaultValue || false;
   }
- 
   var submitButton = document.getElementById('submit_button');
   submitButton.addEventListener('click', function() {
     console.log('Submit');
@@ -124,12 +123,12 @@
     document.location = return_to + encodeURIComponent(JSON.stringify(getConfigData()));
   });
   (function() {
-    var lowerDisplayStepsNum = document.getElementById('lower_display_steps_num_checkbox');
-    var lowerDisplayBattNum = document.getElementById('lower_display_batt_num_checkbox');
-    var lowerDisplayBattBar = document.getElementById('lower_display_batt_bar_checkbox');
-    var lowerDisplayBlank = document.getElementById('lower_display_blank_checkbox');
-    var btIcon = document.getElementById('bt_icon_checkbox');
-    var btVibrate = document.getElementById('bt_vibrate_checkbox');
+    var lowerDisplayStepsNumCheckbox = document.getElementById('lower_display_steps_num_checkbox');
+    var lowerDisplayBattNumCheckbox = document.getElementById('lower_display_batt_num_checkbox');
+    var lowerDisplayBattBarCheckbox = document.getElementById('lower_display_batt_bar_checkbox');
+    var lowerDisplayBlankCheckbox = document.getElementById('lower_display_blank_checkbox');
+    var btIconCheckbox = document.getElementById('bt_icon_checkbox');
+    var btVibrateCheckbox = document.getElementById('bt_vibrate_checkbox');
     // Load any previously saved configuration, if available
     if(localStorage['lower_display_steps_num']) {  lowerDisplayStepsNumCheckbox.checked = JSON.parse(localStorage['lower_display_steps_num']); }
     if(localStorage['lower_display_batt_num']) {  lowerDisplayBattNumCheckbox.checked = JSON.parse(localStorage['lower_display_batt_num']); }
