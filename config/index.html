@@ -198,26 +198,26 @@
     };
 	
     // Save for next launch
-	localStorage[	'bg_brass'			] = options[	'bg_brass'			];
-	localStorage[	'bg_rosegold'		] = options[	'bg_rosegold'		];
-	localStorage[	'bg_darkblue'		] = options[	'bg_darkblue'		];
-	localStorage[	'bg_lightblue'		] = options[	'bg_lightblue'		];
-	localStorage[	'bg_brownstripe'	] = options[	'bg_brownstripe'	];
+	localStorage[	'bg_brass'			] = bgBrassCheckbox.checked;
+	localStorage[	'bg_rosegold'		] = bgRoseGoldCheckbox.checked;
+	localStorage[	'bg_darkblue'		] = bgDarkBlueCheckbox.checked;
+	localStorage[	'bg_lightblue'		] = bgLightBlueCheckbox.checked;
+	localStorage[	'bg_brownstripe'	] = bgBrownStripeCheckbox.checked;
 	
-	localStorage[	'pt_std'			] = options[	'pt_std'			];
-	localStorage[	'pt_circumference'	] = options[	'pt_circumference'	];
-	localStorage[	'pt_future'			] = options[	'pt_future'			];
-	localStorage[	'pt_none'			] = options[	'pt_none'			];
+	localStorage[	'pt_std'			] = ptStdCheckbox.checked;
+	localStorage[	'pt_circumference'	] = ptCircumferenceCheckbox.checked;
+	localStorage[	'pt_future'			] = ptFutureCheckbox.checked;
+	localStorage[	'pt_none'			] = haSolidCheckbox.checked;
 	
-	localStorage[	'ha_tapered'		] = options[	'ha_tapered'		];
-	localStorage[	'ha_slender'		] = options[	'ha_slender'		];
-	localStorage[	'ha_solid'			] = options[	'ha_solid'			];
+	localStorage[	'ha_tapered'		] = haTaperedCheckbox.checked;
+	localStorage[	'ha_slender'		] = haSlenderCheckbox.checked;
+	localStorage[	'ha_solid'			] = haSolidCheckbox.checked;
 	
-    localStorage[	'lower_display_steps_num'	] = options[	'lower_display_steps_num'	];
-    localStorage[	'lower_display_batt_num'	] = options[	'lower_display_batt_num'	];
-    localStorage[	'lower_display_batt_bar'	] = options[	'lower_display_batt_bar'	];
-	localStorage[	'lower_display_cal_num' 	] = options[	'lower_display_cal_num' 	];
-    localStorage[	'lower_display_blank'		] = options[	'lower_display_blank'		];
+    localStorage[	'lower_display_steps_num'	] = lowerDisplayStepsNumCheckbox.checked;
+    localStorage[	'lower_display_batt_num'	] = lowerDisplayBattNumCheckbox.checked;
+    localStorage[	'lower_display_batt_bar'	] = lowerDisplayBattBarCheckbox.checked;
+	localStorage[	'lower_display_cal_num' 	] = lowerDisplayCalNumCheckbox.checked;
+    localStorage[	'lower_display_blank'		] = lowerDisplayBlankCheckbox.checked;
     localStorage[	'bt_icon'					] = options[	'bt_icon'					];
     localStorage[	'bt_vibrate'				] = options[	'bt_vibrate'				];
     console.log('Got options: ' + JSON.stringify(options));
