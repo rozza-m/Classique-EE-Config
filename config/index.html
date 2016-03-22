@@ -11,7 +11,7 @@
     
     <div class="item-container">
       <div class="item-container-header">Dial</div>
-      <div class="item-container-content" id="bg_radios">
+      <div class="item-container-content">
         <label class="item">
           Dark Brass
           <input type="radio" class="item-radio" id="bg_brass_checkbox" name="bg-radio" value="0" checked>
@@ -37,7 +37,7 @@
     
     <div class="item-container">
       <div class="item-container-header">Markers</div>
-      <div class="item-container-content" id="pt_radios">
+      <div class="item-container-content">
         <label class="item">
           Discreet
           <input type="radio" class="item-radio" id="pt_std_checkbox" name="points-radio" value="0" checked>
@@ -59,7 +59,7 @@
 	
 	<div class="item-container">
       <div class="item-container-header">Hands</div>
-      <div class="item-container-content" id="ha_radios">
+      <div class="item-container-content">
         <label class="item">
           Tapered
           <input type="radio" class="item-radio" id="ha_tapered_checkbox" name="hands-radio" value="0" checked>
@@ -78,27 +78,27 @@
     
     <div class="item-container">
       <div class="item-container-header">Lower Display</div>
-      <div class="item-container-content" id="ld_radios">
+      <div class="item-container-content">
         <label class="item">
           Steps today (numeric)
           <p></p><small>This will only work if you have health set up on your pebble.</small></p>
-          <input type="radio" class="item-radio" id="lower_display_steps_num_checkbox" name="radio-1" value="0" checked>
+          <input type="radio" class="item-radio" id="lower_display_steps_num_checkbox" name="ld-radio" value="0" checked>
         </label>
         <label class="item">
           Battery (numeric)
-          <input type="radio" class="item-radio" id="lower_display_batt_num_checkbox" name="radio-1" value="1">
+          <input type="radio" class="item-radio" id="lower_display_batt_num_checkbox" name="ld-radio" value="1">
         </label>
         <label class="item">
           Battery (bar)
-          <input type="radio" class="item-radio" name="radio-1" id="lower_display_batt_bar_checkbox" value="2">
+          <input type="radio" class="item-radio" name="radio-1" id="lower_display_batt_bar_checkbox" name="ld-radio" value="2">
         </label>
         <label class="item">
           Calories burnt (numeric)
-          <input type="radio" class="item-radio" name="radio-1" id="lower_display_cal_num_checkbox" value="3">
+          <input type="radio" class="item-radio" name="radio-1" id="lower_display_cal_num_checkbox" name="ld-radio" value="3">
         </label>
         <label class="item">
           Nothing
-          <input type="radio" class="item-radio" name="radio-1" id="lower_display_blank_checkbox" value="4">
+          <input type="radio" class="item-radio" name="radio-1" id="lower_display_blank_checkbox" name="ld-radio" value="4">
         </label>
       </div>
     </div>
@@ -135,7 +135,7 @@
 	var bgLightBlueCheckbox = 			document.getElementById('bg_lightblue_checkbox'				);
 	var bgBrownStripeCheckbox =  		document.getElementById('bg_brownstripe_checkbox'			);
 	
-	var bgRadioSelection = 				document.querySelector('input[name="bg_radios"]:checked').value
+	var bgRadioSelection = 				document.querySelector('input[name="bg_radio"]:checked').value
 	
 	
 	var ptStdCheckbox =  				document.getElementById('pt_std_checkbox'					);
@@ -143,19 +143,21 @@
 	var ptFutureCheckbox =  			document.getElementById('pt_future_checkbox'				);
 	var ptNoneCheckbox =  				document.getElementById('pt_none_checkbox'					);
 	
-	var ptRadioSelection = 				document.querySelector('input[name="pt_radios"]:checked').value
+	var ptRadioSelection = 				document.querySelector('input[name="pt_radio"]:checked').value
 	
 	var haTaperedCheckbox =  			document.getElementById('ha_tapered_checkbox'				);
 	var haSlenderCheckbox =  			document.getElementById('ha_slender_checkbox'				);
 	var haSolidCheckbox =  				document.getElementById('ha_solid_checkbox'					);
 	
-	var haRadioSelection = 				document.querySelector('input[name="ha_radios"]:checked').value
+	var haRadioSelection = 				document.querySelector('input[name="ha_radio"]:checked').value
 	
     var lowerDisplayStepsNumCheckbox =  document.getElementById('lower_display_steps_num_checkbox'	);
     var lowerDisplayBattNumCheckbox =   document.getElementById('lower_display_batt_num_checkbox'	);
     var lowerDisplayBattBarCheckbox =   document.getElementById('lower_display_batt_bar_checkbox'	);
 	var lowerDisplayCalNumCheckbox =    document.getElementById('lower_display_cal_num_checkbox'	);
     var lowerDisplayBlankCheckbox =     document.getElementById('lower_display_blank_checkbox'		);
+	
+	var ldRadioSelection = 				document.querySelector('input[name="ld_radio"]:checked').value
 	
     var btIconCheckbox =                document.getElementById('bt_icon_checkbox'					);
     var btVibrateCheckbox =             document.getElementById('bt_vibrate_checkbox'				);
@@ -187,6 +189,10 @@
       //'lower_display_batt_bar'		: lowerDisplayBattBarCheckbox.checked,
 	  //'lower_display_cal_num'		: lowerDisplayCalNumCheckbox.checked,
       //'lower_display_blank'			: lowerDisplayBlankCheckbox.checked,
+	  
+	  'ld_selection'				: ldRadioSelection,
+	  
+	  
       'bt_icon'						: btIconCheckbox.checked,
       'bt_vibrate'					: btVibrateCheckbox.checked
     };
