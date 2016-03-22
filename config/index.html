@@ -20,6 +20,72 @@
   <body>
     <h1 class='title'>Classique Configuration</h1>
     
+    <div class="item-container">
+      <div class="item-container-header">Dial</div>
+      <div class="item-container-content">
+        <label class="item">
+          Dark Brass
+          <input type="checkbox" class="item-checkbox" id="bg_brass_checkbox" name="checkbox-1">
+        </label>
+        <label class="item">
+          Rose Gold
+          <input type="checkbox" class="item-checkbox" id="bg_rosegold_checkbox" name="checkbox-1">
+        </label>
+        <label class="item">
+          Midnight
+          <input type="checkbox" class="item-checkbox" id="bg_darkblue_checkbox" name="checkbox-1">
+        </label>
+        <label class="item">
+          Daylight
+          <input type="checkbox" class="item-checkbox" id="bg_lightblue_checkbox" name="checkbox-1">
+        </label>
+        <label class="item">
+          Corduroy
+          <input type="checkbox" class="item-checkbox" id="bg_brownstripe_checkbox" name="checkbox-1">
+        </label>
+      </div>
+    </div>
+    
+    <div class="item-container">
+      <div class="item-container-header">Markers</div>
+      <div class="item-container-content">
+        <label class="item">
+          Discreet
+          <input type="checkbox" class="item-checkbox" id="pt_std_checkbox" name="checkbox-1">
+        </label>
+        <label class="item">
+          Circumferential
+          <input type="checkbox" class="item-checkbox" id="pt_circumference_checkbox" name="checkbox-1">
+        </label>
+        <label class="item">
+          Trinumeric
+          <input type="checkbox" class="item-checkbox" id="pt_future_checkbox" name="checkbox-1">
+        </label>
+        <label class="item">
+          None
+          <input type="checkbox" class="item-checkbox" id="pt_future_checkbox" name="checkbox-1">
+        </label>
+      </div>
+    </div>
+	
+	<div class="item-container">
+      <div class="item-container-header">Hands</div>
+      <div class="item-container-content">
+        <label class="item">
+          Tapered
+          <input type="checkbox" class="item-checkbox" id="ha_tapered_checkbox" name="checkbox-1">
+        </label>
+        <label class="item">
+          Slender
+          <input type="checkbox" class="item-checkbox" id="ha_slender_checkbox" name="checkbox-1">
+        </label>
+        <label class="item">
+          Solid
+          <input type="checkbox" class="item-checkbox" id="ha_solid_checkbox" name="checkbox-1">
+        </label>
+      </div>
+    </div>
+    
     
     <div class="item-container">
       <div class="item-container-header">Lower Display</div>
@@ -38,8 +104,12 @@
           <input type="radio" class="item-radio" name="radio-1" id="lower_display_batt_bar_checkbox" value="c">
         </label>
         <label class="item">
+          Calories burnt (numeric)
+          <input type="radio" class="item-radio" name="radio-1" id="lower_display_cal_num_checkbox" value="d">
+        </label>
+        <label class="item">
           Nothing
-          <input type="radio" class="item-radio" name="radio-1" id="lower_display_blank_checkbox" value="d">
+          <input type="radio" class="item-radio" name="radio-1" id="lower_display_blank_checkbox" value="e">
         </label>
       </div>
     </div>
@@ -58,16 +128,7 @@
       </div>
     </div>
     
-    <div class="item-container">
-      <div class="item-container-content">
-        <div class="item">
-          Classique will always be free and will never have features taken away. 
-          But if you want to support the developer (me), and in return get loads 
-          of customisation options, you can get Classique Exclusive Edition from
-          the Pebble App Store for $1.25!
-        </div>
-      </div>
-    </div>
+
     
     <div class='item-container'>
       <div class='button-container'>
@@ -79,28 +140,77 @@
   </body>
   <script>
   function getConfigData() {
-    var lowerDisplayStepsNumCheckbox = document.getElementById('lower_display_steps_num_checkbox');
-    var lowerDisplayBattNumCheckbox = document.getElementById('lower_display_batt_num_checkbox');
-    var lowerDisplayBattBarCheckbox = document.getElementById('lower_display_batt_bar_checkbox');
-    var lowerDisplayBlankCheckbox = document.getElementById('lower_display_blank_checkbox');
-    var btIconCheckbox = document.getElementById('bt_icon_checkbox');
-    var btVibrateCheckbox = document.getElementById('bt_vibrate_checkbox');
+	var bgBrassCheckbox =  				document.getElementById('bg_brass_checkbox'					);
+	var bgRoseGoldCheckbox =  			document.getElementById('bg_rosegold_checkbox'				);
+	var bgDarkBlueCheckbox =  			document.getElementById('bg_darkblue_checkbox'				);
+	var bgLightBlueCheckbox = 			document.getElementById('bg_lightblue_checkbox'				);
+	var bgBrownStripeCheckbox =  		document.getElementById('bg_brownstripe_checkbox'			);
+	
+	var ptStdCheckbox =  				document.getElementById('pt_std_checkbox'					);
+	var ptCircumferenceCheckbox = 		document.getElementById('pt_circumference_checkbox'			);
+	var ptFutureCheckbox =  			document.getElementById('pt_future_checkbox'				);
+	var ptNoneCheckbox =  				document.getElementById('pt_none_checkbox'					);
+	
+	var haTaperedCheckbox =  			document.getElementById('ha_tapered_checkbox'				);
+	var haSlenderCheckbox =  			document.getElementById('ha_slender_checkbox'				);
+	var haSolidCheckbox =  				document.getElementById('ha_solid_checkbox'					);
+	
+    var lowerDisplayStepsNumCheckbox =  document.getElementById('lower_display_steps_num_checkbox'	);
+    var lowerDisplayBattNumCheckbox =   document.getElementById('lower_display_batt_num_checkbox'	);
+    var lowerDisplayBattBarCheckbox =   document.getElementById('lower_display_batt_bar_checkbox'	);
+	var lowerDisplayCalNumCheckbox =    document.getElementById('lower_display_cal_num_checkbox'	);
+    var lowerDisplayBlankCheckbox =     document.getElementById('lower_display_blank_checkbox'		);
+    var btIconCheckbox =                document.getElementById('bt_icon_checkbox'					);
+    var btVibrateCheckbox =             document.getElementById('bt_vibrate_checkbox'				);
  
     var options = {
-      'lower_display_steps_num': lowerDisplayStepsNumCheckbox.checked,
-      'lower_display_batt_num': lowerDisplayBattNumCheckbox.checked,
-      'lower_display_batt_bar': lowerDisplayBattBarCheckbox.checked,
-      'lower_display_blank': lowerDisplayBlankCheckbox.checked,
-      'bt_icon': btIconCheckbox.checked,
-      'bt_vibrate': btVibrateCheckbox.checked
+	  'bg_brass'					: bgBrassCheckbox.checked,
+	  'bg_rosegold'					: bgRoseGoldCheckbox.checked,
+	  'bg_darkblue'					: bgDarkBlueCheckbox.checked,
+	  'bg_lightblue'				: bgLightBlueCheckbox.checked,
+	  'bg_brownstripe'				: bgBrownStripeCheckbox.checked,
+	  
+	  'pt_std'						: ptStdCheckbox.checked,
+	  'pt_circumference'			: ptCircumferenceCheckbox.checked,
+	  'pt_future'					: ptFutureCheckbox.checked,
+	  'pt_none'						: ptNoneCheckbox.checked,
+	  
+	  'ha_tapered'					: haTaperedCheckbox.checked,
+	  'ha_slender'					: haSlenderCheckbox.checked,
+	  'ha_solid'					: haSolidCheckbox.checked,
+		
+      'lower_display_steps_num'		: lowerDisplayStepsNumCheckbox.checked,
+      'lower_display_batt_num'		: lowerDisplayBattNumCheckbox.checked,
+      'lower_display_batt_bar'		: lowerDisplayBattBarCheckbox.checked,
+	  'lower_display_cal_num'		: lowerDisplayCalNumCheckbox.checked,
+      'lower_display_blank'			: lowerDisplayBlankCheckbox.checked,
+      'bt_icon'						: btIconCheckbox.checked,
+      'bt_vibrate'					: btVibrateCheckbox.checked
     };
+	
     // Save for next launch
-    localStorage['lower_display_steps_num'] = options['lower_display_steps_num'];
-    localStorage['lower_display_batt_num'] = options['lower_display_batt_num'];
-    localStorage['lower_display_batt_bar'] = options['lower_display_batt_bar'];
-    localStorage['lower_display_blank'] = options['lower_display_blank'];
-    localStorage['bt_icon'] = options['bt_icon'];
-    localStorage['bt_vibrate'] = options['bt_vibrate'];
+	localStorage[	'bg_brass'			] = options[	'bg_brass'			];
+	localStorage[	'bg_rosegold'		] = options[	'bg_rosegold'		];
+	localStorage[	'bg_darkblue'		] = options[	'bg_darkblue'		];
+	localStorage[	'bg_lightblue'		] = options[	'bg_lightblue'		];
+	localStorage[	'bg_brownstripe'	] = options[	'bg_brownstripe'	];
+	
+	localStorage[	'pt_std'			] = options[	'pt_std'			];
+	localStorage[	'pt_circumference'	] = options[	'pt_circumference'	];
+	localStorage[	'pt_future'			] = options[	'pt_future'			];
+	localStorage[	'pt_none'			] = options[	'pt_none'			];
+	
+	localStorage[	'ha_tapered'		] = options[	'ha_tapered'		];
+	localStorage[	'ha_slender'		] = options[	'ha_slender'		];
+	localStorage[	'ha_solid'			] = options[	'ha_solid'			];
+	
+    localStorage[	'lower_display_steps_num'	] = options[	'lower_display_steps_num'	];
+    localStorage[	'lower_display_batt_num'	] = options[	'lower_display_batt_num'	];
+    localStorage[	'lower_display_batt_bar'	] = options[	'lower_display_batt_bar'	];
+	localStorage[	'lower_display_cal_num' 	] = options[	'lower_display_cal_num' 	];
+    localStorage[	'lower_display_blank'		] = options[	'lower_display_blank'		];
+    localStorage[	'bt_icon'					] = options[	'bt_icon'					];
+    localStorage[	'bt_vibrate'				] = options[	'bt_vibrate'				];
     console.log('Got options: ' + JSON.stringify(options));
     return options;
   }
@@ -123,19 +233,51 @@
     document.location = return_to + encodeURIComponent(JSON.stringify(getConfigData()));
   });
   (function() {
-    var lowerDisplayStepsNumCheckbox = document.getElementById('lower_display_steps_num_checkbox');
-    var lowerDisplayBattNumCheckbox = document.getElementById('lower_display_batt_num_checkbox');
-    var lowerDisplayBattBarCheckbox = document.getElementById('lower_display_batt_bar_checkbox');
-    var lowerDisplayBlankCheckbox = document.getElementById('lower_display_blank_checkbox');
-    var btIconCheckbox = document.getElementById('bt_icon_checkbox');
-    var btVibrateCheckbox = document.getElementById('bt_vibrate_checkbox');
+    var bgBrassCheckbox =  				document.getElementById('bg_brass_checkbox'					);
+	var bgRoseGoldCheckbox =  			document.getElementById('bg_rosegold_checkbox'				);
+	var bgDarkBlueCheckbox =  			document.getElementById('bg_darkblue_checkbox'				);
+	var bgLightBlueCheckbox = 			document.getElementById('bg_lightblue_checkbox'				);
+	var bgBrownStripeCheckbox =  		document.getElementById('bg_brownstripe_checkbox'			);
+	
+	var ptStdCheckbox =  				document.getElementById('pt_std_checkbox'					);
+	var ptCircumferenceCheckbox = 		document.getElementById('pt_circumference_checkbox'			);
+	var ptFutureCheckbox =  			document.getElementById('pt_future_checkbox'				);
+	var ptNoneCheckbox =  				document.getElementById('pt_none_checkbox'					);
+	
+	var haTaperedCheckbox =  			document.getElementById('ha_tapered_checkbox'				);
+	var haSlenderCheckbox =  			document.getElementById('ha_slender_checkbox'				);
+	var haSolidCheckbox =  				document.getElementById('ha_solid_checkbox'					);
+	
+    var lowerDisplayStepsNumCheckbox =  document.getElementById('lower_display_steps_num_checkbox'	);
+    var lowerDisplayBattNumCheckbox =   document.getElementById('lower_display_batt_num_checkbox'	);
+    var lowerDisplayBattBarCheckbox =   document.getElementById('lower_display_batt_bar_checkbox'	);
+	var lowerDisplayCalNumCheckbox =    document.getElementById('lower_display_cal_num_checkbox'	);
+    var lowerDisplayBlankCheckbox =     document.getElementById('lower_display_blank_checkbox'		);
+    var btIconCheckbox =                document.getElementById('bt_icon_checkbox'					);
+    var btVibrateCheckbox =             document.getElementById('bt_vibrate_checkbox'				);
     // Load any previously saved configuration, if available
-    if(localStorage['lower_display_steps_num']) {  lowerDisplayStepsNumCheckbox.checked = JSON.parse(localStorage['lower_display_steps_num']); }
-    if(localStorage['lower_display_batt_num']) {  lowerDisplayBattNumCheckbox.checked = JSON.parse(localStorage['lower_display_batt_num']); }
-    if(localStorage['lower_display_batt_bar']) {  lowerDisplayBattBarCheckbox.checked = JSON.parse(localStorage['lower_display_batt_bar']); }
-    if(localStorage['lower_display_blank']) {  lowerDisplayBlankCheckbox.checked = JSON.parse(localStorage['lower_display_blank']); }
-    if(localStorage['bt_icon']) {  btIconCheckbox.checked = JSON.parse(localStorage['bt_icon']); }
-    if(localStorage['bt_vibrate']) {  btVibrateCheckbox.checked = JSON.parse(localStorage['bt_vibrate']); }
+	if(localStorage[	'bg_brass'					]) {  bgBrassCheckbox.checked 					= JSON.parse(localStorage[	'bg_brass'					]); }
+	if(localStorage[	'bg_rosegold'				]) {  bgRoseGoldCheckbox.checked 				= JSON.parse(localStorage[	'bg_rosegold'				]); }
+	if(localStorage[	'bg_darkblue'				]) {  bgDarkBlueCheckbox.checked 				= JSON.parse(localStorage[	'bg_darkblue'				]); }
+	if(localStorage[	'bg_lightblue'				]) {  bgLightBlueCheckbox.checked 				= JSON.parse(localStorage[	'bg_lightblue'				]); }
+	if(localStorage[	'bg_brownstripe'			]) {  bgBrownStripeCheckbox.checked 			= JSON.parse(localStorage[	'bg_brownstripe'			]); }
+	
+	if(localStorage[	'pt_std'					]) {  ptStdCheckbox.checked 					= JSON.parse(localStorage[	'pt_std'					]); }
+	if(localStorage[	'pt_circumference'			]) {  ptCircumferenceCheckbox.checked 			= JSON.parse(localStorage[	'pt_circumference'			]); }
+	if(localStorage[	'pt_future'					]) {  ptFutureCheckbox.checked 					= JSON.parse(localStorage[	'pt_future'					]); }
+	if(localStorage[	'pt_none'					]) {  ptNoneCheckbox.checked 					= JSON.parse(localStorage[	'pt_none'					]); }
+	
+	if(localStorage[	'ha_tapered'				]) {  haTaperedCheckbox.checked 				= JSON.parse(localStorage[	'ha_tapered'				]); }
+	if(localStorage[	'ha_slender'				]) {  haSlenderCheckbox.checked 				= JSON.parse(localStorage[	'ha_slender'				]); }
+	if(localStorage[	'ha_solid'					]) {  haSolidCheckbox.checked 					= JSON.parse(localStorage[	'ha_solid'					]); }
+	
+    if(localStorage[	'lower_display_steps_num'	]) {  lowerDisplayStepsNumCheckbox.checked 		= JSON.parse(localStorage[	'lower_display_steps_num'	]); }
+    if(localStorage[	'lower_display_batt_num'	]) {  lowerDisplayBattNumCheckbox.checked 		= JSON.parse(localStorage[	'lower_display_batt_num'	]); }
+    if(localStorage[	'lower_display_batt_bar'	]) {  lowerDisplayBattBarCheckbox.checked 		= JSON.parse(localStorage[	'lower_display_batt_bar'	]); }
+	if(localStorage[	'lower_display_cal_num'		]) {  lowerDisplayCalNumCheckbox.checked 		= JSON.parse(localStorage[	'lower_display_cal_num'		]); }
+    if(localStorage[	'lower_display_blank'		]) {  lowerDisplayBlankCheckbox.checked 		= JSON.parse(localStorage[	'lower_display_blank'		]); }
+    if(localStorage[	'bt_icon'					]) {  btIconCheckbox.checked 					= JSON.parse(localStorage[	'bt_icon'					]); }
+    if(localStorage[	'bt_vibrate'				]) {  btVibrateCheckbox.checked 				= JSON.parse(localStorage[	'bt_vibrate'				]); }
   })();
   </script>
 </html>
