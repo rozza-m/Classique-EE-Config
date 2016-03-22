@@ -135,7 +135,7 @@
 	var bgLightBlueCheckbox = 			document.getElementById('bg_lightblue_checkbox'				);
 	var bgBrownStripeCheckbox =  		document.getElementById('bg_brownstripe_checkbox'			);
 	
-	var bgRadioSelection = 				document.querySelector('input[name="bg_radio"]:checked').value
+	var bgRadioSelection = 				document.querySelector('input[name="bg_radio"]:checked')
 	
 	
 	var ptStdCheckbox =  				document.getElementById('pt_std_checkbox'					);
@@ -143,13 +143,13 @@
 	var ptFutureCheckbox =  			document.getElementById('pt_future_checkbox'				);
 	var ptNoneCheckbox =  				document.getElementById('pt_none_checkbox'					);
 	
-	var ptRadioSelection = 				document.querySelector('input[name="pt_radio"]:checked').value
+	var ptRadioSelection = 				document.querySelector('input[name="pt_radio"]:checked')
 	
 	var haTaperedCheckbox =  			document.getElementById('ha_tapered_checkbox'				);
 	var haSlenderCheckbox =  			document.getElementById('ha_slender_checkbox'				);
 	var haSolidCheckbox =  				document.getElementById('ha_solid_checkbox'					);
 	
-	var haRadioSelection = 				document.querySelector('input[name="ha_radio"]:checked').value
+	var haRadioSelection = 				document.querySelector('input[name="ha_radio"]:checked')
 	
     var lowerDisplayStepsNumCheckbox =  document.getElementById('lower_display_steps_num_checkbox'	);
     var lowerDisplayBattNumCheckbox =   document.getElementById('lower_display_batt_num_checkbox'	);
@@ -157,7 +157,7 @@
 	var lowerDisplayCalNumCheckbox =    document.getElementById('lower_display_cal_num_checkbox'	);
     var lowerDisplayBlankCheckbox =     document.getElementById('lower_display_blank_checkbox'		);
 	
-	var ldRadioSelection = 				document.querySelector('input[name="ld_radio"]:checked').value
+	var ldRadioSelection = 				document.querySelector('input[name="ld_radio"]:checked')
 	
     var btIconCheckbox =                document.getElementById('bt_icon_checkbox'					);
     var btVibrateCheckbox =             document.getElementById('bt_vibrate_checkbox'				);
@@ -169,20 +169,20 @@
 	  //'bg_lightblue'				: bgLightBlueCheckbox.checked,
 	  //'bg_brownstripe'				: bgBrownStripeCheckbox.checked,
 	  
-	  'bg_selection'				: bgRadioSelection,
+	  'bg_selection'				: bgRadioSelection.value,
 	  
 	  //'pt_std'						: ptStdCheckbox.checked,
 	  //'pt_circumference'			: ptCircumferenceCheckbox.checked,
 	  //'pt_future'					: ptFutureCheckbox.checked,
 	  //'pt_none'						: ptNoneCheckbox.checked,
 	  
-	  'pt_selection'				: ptRadioSelection,
+	  'pt_selection'				: ptRadioSelection.value,
 	  
 	  //'ha_tapered'					: haTaperedCheckbox.checked,
 	  //'ha_slender'					: haSlenderCheckbox.checked,
 	  //'ha_solid'					: haSolidCheckbox.checked,
 		
-	  'ha_selection'				: haRadioSelection,
+	  'ha_selection'				: haRadioSelection.value,
 		
       //'lower_display_steps_num'		: lowerDisplayStepsNumCheckbox.checked,
       //'lower_display_batt_num'		: lowerDisplayBattNumCheckbox.checked,
@@ -190,7 +190,7 @@
 	  //'lower_display_cal_num'		: lowerDisplayCalNumCheckbox.checked,
       //'lower_display_blank'			: lowerDisplayBlankCheckbox.checked,
 	  
-	  'ld_selection'				: ldRadioSelection,
+	  'ld_selection'				: ldRadioSelection.value,
 	  
 	  
       'bt_icon'						: btIconCheckbox.checked,
